@@ -1,0 +1,119 @@
+import javax.swing.JFrame;
+import java.awt.Image;
+import javax.swing.JButton;
+import java.awt.Color;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.lang.Math;
+import javax.swing.JLabel;
+import javax.swing.event.*;
+
+//Seules les parties différentes de Fenetre1 sont commentées ici.
+
+public class Fenetre2 extends JFrame implements ActionListener{
+	
+	private Bouton2 bouton = new Bouton2("");
+	private Boutonf2 boutonf = new Boutonf2("");
+	private Boutonf2 boutonf1 = new Boutonf2("");
+	private Boutonf2 boutonf2 = new Boutonf2("");
+	private JPanel container = new JPanel();
+	private JPanel somme = new JPanel();
+	CardLayout c1 = new CardLayout();
+	private JLabel texte = new JLabel("Processus d'authentification réussi!");
+	private JPanel card1 = new JPanel();
+	
+	public Fenetre2() {
+		
+		//Titre
+		this.setTitle("Processus d'authentification: Choisis ton animal favori!");
+		//Taille
+		this.setSize(400,400);
+		//Position
+		this.setLocationRelativeTo(null);
+		//Fin de processus sur fermeture
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//Blocage du redimensionnement
+		this.setResizable(false);
+		//Laisser au premier plan
+		this.setAlwaysOnTop(false);
+		//On choisi comme Layout un CardLayout pour pouvoir fair "apparaitre" un message en cas de réussite de l'authentification
+		
+		//Le JPanel "somme" englobe les deux JPanel de "base": "card1" et "container"
+		somme.setLayout(c1);
+		//card1 est le JPanel utilisé en cas de réussite de l'authentification, il est vert.
+		card1.setLayout(new BorderLayout());
+		card1.setBackground(Color.green);
+		 Font police = new Font("Tahoma", Font.BOLD, 16);  
+		    texte.setFont(police);  
+		    texte.setForeground(Color.blue);  
+		    texte.setHorizontalAlignment(JLabel.CENTER);
+
+		card1.add(texte, BorderLayout.CENTER);
+		
+		//Container est identique au JPanel utilisé dans la première fenêtre
+	    container.setLayout(new GridLayout(2,2));
+	    somme.add(container);
+		somme.add(card1);
+		
+		
+	    placement();
+	    bouton.addActionListener(this);
+	    boutonf.addActionListener(this);
+	    boutonf1.addActionListener(this);
+	    boutonf2.addActionListener(this);
+	    this.setContentPane(somme);
+		
+		//Visibilité
+				this.setVisible(true);
+	}
+
+	public void actionPerformed(ActionEvent arg0){
+		if(arg0.getSource()== bouton){
+			//Si le bon bouton est enfoncé, on fait "apparaitre" un message de félicitation
+			c1.next(somme);
+		}
+		else{
+			//Sinon on arrete le processus
+			this.dispose();
+		}
+	}
+	public void placement(){
+		int nb = (int) (Math.random() * 5 );
+		if(nb==1){
+			 	container.add(bouton);
+			    container.add(boutonf);
+			    container.add(boutonf1);
+			    container.add(boutonf2);
+		}
+		else{
+			if(nb==2){
+				 container.add(boutonf);
+				    container.add(bouton);
+				    container.add(boutonf1);
+				    container.add(boutonf2);
+			}
+			else{
+				if(nb==3){
+					 container.add(boutonf);
+					    container.add(boutonf1);
+					    container.add(bouton);
+					    container.add(boutonf2);
+				}
+				else{
+					 container.add(boutonf2);
+					    container.add(boutonf);
+					    container.add(boutonf1);
+					    container.add(bouton);
+				}
+			}
+		}
+	}
+	
+}
+
