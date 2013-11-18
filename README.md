@@ -7,10 +7,10 @@ chance sur quatre de choisir correctement à chaque nouvelle fenêtre. Evidemmen
 boutons ce qui diminuera les chances de réponses correctes venant d'inconnus. Ce code est surtout là pour l'exemple. 
 
 Pour le tester: il est codé en java, il y a en tout 7 classes: une classe de test: "test IG", une classe correspondant à la première
-fenêtre, une classe correspondant à la seconde fenêtre et quatre classe de "boutons" java. 
+fenêtre: "fenetre1", une classe correspondant à la seconde fenêtre:"fenetre2" et quatre classe de "boutons" java:"bouton", "bouton2", "boutonf" et "boutonf2". 
 
 L'ensemble du code est commenté relativement précautionneusement. 
 
-!!!Pour un fonctionnement correct il est indispensable d'avoir les bonnes photos avec les bons titres à la source du code.
+Attention: pour un fonctionnement correct il est indispensable d'avoir les bonnes photos avec les bons titres à la source du code.
 
 Bon test!
