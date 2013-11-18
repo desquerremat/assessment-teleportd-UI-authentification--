@@ -56,6 +56,7 @@ public class Fenetre1 extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent arg0){
 		//Si le bouton où se situe la bonne photo est enfoncé, on ouvre la seconde fenêtre 
 		if(arg0.getSource()== bouton){
+		this.dispose();
 		Fenetre2 fenetre = new Fenetre2();
 		}
 		
