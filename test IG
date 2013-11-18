@@ -1,0 +1,11 @@
+
+public class testIG {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Fenetre1 fenetre = new Fenetre1();
+	}
+
+}
