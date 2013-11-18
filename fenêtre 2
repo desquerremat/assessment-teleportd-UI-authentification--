@@ -33,7 +33,7 @@ public class Fenetre2 extends JFrame implements ActionListener{
 		//Titre
 		this.setTitle("Processus d'authentification: Choisis ton animal favori!");
 		//Taille
-		this.setSize(400,400);
+		this.setSize(600,600);
 		//Position
 		this.setLocationRelativeTo(null);
 		//Fin de processus sur fermeture
