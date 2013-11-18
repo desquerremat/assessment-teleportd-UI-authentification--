@@ -21,7 +21,7 @@ public class Bouton extends JButton implements MouseListener{
     super(str);
     this.name = str;
     try {
-      img = ImageIO.read(new File("fenetre1/Vrai/imgv.jpg"));
+      img = ImageIO.read(new File("photos/fenetre1/Vrai/imgv.jpg"));
     } catch (IOException e) {
       e.printStackTrace();
     }
