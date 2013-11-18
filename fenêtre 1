@@ -1,0 +1,101 @@
+import javax.swing.JFrame;
+import java.awt.Image;
+import javax.swing.JButton;
+import java.awt.Color;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.lang.Math;
+import javax.swing.JLabel;
+import javax.swing.event.*;
+
+public class Fenetre1 extends JFrame implements ActionListener{
+
+	private Bouton bouton = new Bouton("");
+	private Boutonf boutonf = new Boutonf("");
+	private Boutonf boutonf1 = new Boutonf("");
+	private Boutonf boutonf2 = new Boutonf("");
+	private JPanel container = new JPanel();
+	
+	public Fenetre1() {
+		
+		//Titre
+		this.setTitle("Processus d'authentification: Quel est ton chalet?");
+		//Taille
+		this.setSize(400,400);
+		//Position
+		this.setLocationRelativeTo(null);
+		//Fin de processus sur fermeture
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//Blocage du redimensionnement
+		this.setResizable(false);
+		//Laisser au premier plan
+		this.setAlwaysOnTop(false);
+		//La fenêtre sera formée d'une grille de quatres boutons de tailles égales
+	    container.setLayout(new GridLayout(2,2));
+	    //Pour éviter que la "bonne photo soit toujours au même endroit on appelle cette fonction
+	    placement();
+	    //Les boutons sont activés
+	    bouton.addActionListener(this);
+	    boutonf.addActionListener(this);
+	    boutonf1.addActionListener(this);
+	    boutonf2.addActionListener(this);
+	    
+	    this.setContentPane(container);
+	    
+	    this.setVisible(true);
+		
+		//Visibilité
+				this.setVisible(true);
+	}
+
+	public void actionPerformed(ActionEvent arg0){
+		//Si le bouton où se situe la bonne photo est enfoncé, on ouvre la seconde fenêtre 
+		if(arg0.getSource()== bouton){
+		Fenetre2 fenetre = new Fenetre2();
+		}
+		
+		else{
+			//Sinon le processus est arreté.
+			this.dispose();
+		}
+	}
+	//La fonction placement place simplement les différents boutons de manière aléatoire
+	public void placement(){
+		int nb = (int) (Math.random() * 5 );
+		if(nb==1){
+			 	container.add(bouton);
+			    container.add(boutonf);
+			    container.add(boutonf1);
+			    container.add(boutonf2);
+		}
+		else{
+			if(nb==2){
+				 container.add(boutonf);
+				    container.add(bouton);
+				    container.add(boutonf1);
+				    container.add(boutonf2);
+			}
+			else{
+				if(nb==3){
+					 container.add(boutonf);
+					    container.add(boutonf1);
+					    container.add(bouton);
+					    container.add(boutonf2);
+				}
+				else{
+					 container.add(boutonf2);
+					    container.add(boutonf);
+					    container.add(boutonf1);
+					    container.add(bouton);
+				}
+			}
+		}
+	}
+	
+}
+
