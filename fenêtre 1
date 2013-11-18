@@ -26,7 +26,7 @@ public class Fenetre1 extends JFrame implements ActionListener{
 		//Titre
 		this.setTitle("Processus d'authentification: Quel est ton chalet?");
 		//Taille
-		this.setSize(400,400);
+		this.setSize(600,600);
 		//Position
 		this.setLocationRelativeTo(null);
 		//Fin de processus sur fermeture
